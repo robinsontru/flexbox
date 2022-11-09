@@ -1,0 +1,5 @@
+var header = document.querySelector('header')
+ console.log(header)
+var logo = document.createElement('h1')
+console.log(logo)
+header.appendChil(logo)

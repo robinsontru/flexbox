@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>DOM Event Example</title>
+
+<style>
+#t { border: 1px solid red }
+#t1 { background-color: pink; }
+</style>
+
+<script>
+
+var Something = function(element)
+{
+  this.name = 'Something Good';
+  this.handleEvent = function(event) {
+    console.log(this.name); // 'Something Good', as this is the Something object
+    switch(event.type) {
+      case 'click':
+        // some code here...
+        break;
+      case 'dblclick':
+        // some code here...
+        break;
+    }
+  };
+
+  // Note that the listeners in this case are this, not this.handleEvent
+  element.addEventListener('click', this, false);
+  element.addEventListener('dblclick', this, false);
+
+  // You can properly remove the listners
+  element.removeEventListener('click', this, false);
+  element.removeEventListener('dblclick', this, false);
+}
+
+</script>
+
+</head>
+<body onload="load();">
+
+<table id="t">
+  <tr><td id="t1">one</td></tr>
+  <tr><td id="t2">two</td></tr>
+</table>
+
+</body>
+</html>
